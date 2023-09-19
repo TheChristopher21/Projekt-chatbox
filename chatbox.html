@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="chatbox.css">
+    <title>Chatbox</title>
+
+</head>
+<body>
+<div id="chat-container">
+    <div id="chat-header">
+        <div>
+            <img src="https://bankerandtradesman.com/wp-content/uploads/2015/08/Timothy-Telman_Bank-of-Cape-Cod.jpg" alt="Online" width="20" height="20">
+            <span>Name des Chatpartners</span>
+        </div>
+        <div>
+
+            <span id="close-button">X</span>
+        </div>
+    </div>
+    <div id="chat-content">
+    </div>
+    <div>
+        <input type="text" id="message-input" placeholder="Nachricht eingeben">
+        <button id="send-button">Senden</button>
+    </div>
+</div>
+
+<script>
+    const chatContainer = document.getElementById("chat-container");
+    const closeButton = document.getElementById("close-button");
+    const messageInput = document.getElementById("message-input");
+    const sendButton = document.getElementById("send-button");
+    const chatContent = document.getElementById("chat-content");
+
+    closeButton.addEventListener("click", () => {
+        chatContainer.style.display = "none";
+    });
+
+    sendButton.addEventListener("click", () => {
+        const message = messageInput.value.trim();
+        if (message !== "") {
+            const messageElement = document.createElement("div");
+            messageElement.textContent = message;
+            chatContent.appendChild(messageElement);
+            messageInput.value = "";
+        }
+    });
+</script>
+</body>
+</html>
+
